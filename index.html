@@ -4,16 +4,65 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RICK SAHA PROTFOLIO 2k24</title>
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/style1.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
-    <script
-      src="https://kit.fontawesome.com/1d8e22ac19.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="./js/index.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+      // Initialize EmailJS with your user ID
+      emailjs.init("QSgdgRnpbV_N_S9PT");
+
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .querySelector("#form_container")
+          .addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const name = document.querySelector("#name").value;
+            const email = document.querySelector("#email").value;
+            const message = document.querySelector("#message").value;
+
+            // Find the status box elements
+            const message_status_show_box = document.querySelector(
+              "#message_status_box"
+            );
+            const message_status_show_box_text = document.querySelector(
+              "#message_text_design"
+            );
+
+            // Check if status box elements are present
+            if (!message_status_show_box || !message_status_show_box_text) {
+              console.error("Status box elements not found in the DOM.");
+              return;
+            }
+
+            if (name && email && message) {
+              // Send the form data using EmailJS
+              emailjs
+                .sendForm("service_bfm4a8b", "template_rxui8ot", this)
+                .then(
+                  function () {
+                    // Update status box for successful submission
+                    message_status_show_box.style.backgroundColor = "green"; // Green for success
+                    message_status_show_box_text.innerText = "Success";
+                    // Optionally, reset the form after successful submission
+                    document.querySelector("#form_container").reset();
+                  },
+                  function (error) {
+                    // Update status box for failed submission
+                    message_status_show_box.style.backgroundColor = "red"; // Red for failure
+                    message_status_show_box_text.innerText = "Failed!";
+                    console.error("Error:", error);
+                  }
+                );
+            } else {
+              alert("Please fill in all fields.");
+            }
+          });
+      });
+    </script>
   </head>
   <body>
     <div class="main_container">
@@ -153,7 +202,7 @@
             <div class="service" id="service1">
               <button>
                 <span class="material-symbols-outlined"> extension </span>Custom
-                Web Application Development
+                Website Development
               </button>
             </div>
             <div class="service" id="service2">
@@ -216,7 +265,7 @@
               </span>
             </section>
           </section>
-          <sction class="about_me">
+          <section class="about_me">
             <h4>About Me</h4>
             <p>
               I am Rick Saha, a dedicated and passionate MERN Stack Developer
@@ -235,7 +284,7 @@
               with industry trends to ensure the solutions I develop are
               cutting-edge and effective.
             </p>
-          </sction>
+          </section>
         </section>
         <section class="middle_middle">
           <section class="projects">
@@ -273,30 +322,47 @@
             <section class="social_icons">
               <section class="sc_icon_alignment">
                 <i class="fa-brands fa-twitter"></i>
-                <button class="follow_btn">Follow</button>
+                <a href="https://x.com/Rick2k22" class="btn_follow_link">
+                  <button class="follow_btn">Follow</button>
+                </a>
               </section>
-              <p>25k followers</p>
+              <p>Connect in Twitter</p>
             </section>
             <section class="social_icons">
               <section class="sc_icon_alignment">
                 <i class="fa-brands fa-instagram"></i>
-                <button class="follow_btn">Follow</button>
+                <a
+                  href="https://www.instagram.com/i.am.rick.02/"
+                  class="btn_follow_link"
+                >
+                  <button class="follow_btn">Follow</button>
+                </a>
               </section>
-              <p>50k followers</p>
+              <p>Connect in Insta</p>
             </section>
             <section class="social_icons">
               <section class="sc_icon_alignment">
                 <i class="fa-brands fa-facebook"></i>
-                <button class="follow_btn">Follow</button>
+                <a
+                  href="https://www.facebook.com/ricksaha.2k23/"
+                  class="btn_follow_link"
+                >
+                  <button class="follow_btn">Follow</button>
+                </a>
               </section>
-              <p>4.1k followers</p>
+              <p>Connect in facebook</p>
             </section>
             <section class="social_icons">
               <section class="sc_icon_alignment">
                 <i class="fa-brands fa-linkedin"></i>
-                <button class="follow_btn">Follow</button>
+                <a
+                  href="https://www.linkedin.com/in/rick-saha-27004721b"
+                  class="btn_follow_link"
+                >
+                  <button class="follow_btn">Follow</button>
+                </a>
               </section>
-              <p>55k followers</p>
+              <p>Connect in Linkedin</p>
             </section>
           </section>
         </section>
@@ -311,15 +377,21 @@
         </section>
         <section class="tesimonial_content">
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum
-            ducimus velit in consequuntur voluptates nesciunt dignissimos alias,
-            cumque dolor odit mollitia est, nemo sapiente voluptatem culpa
-            quisquam eum. Consequatur, dolorum?
+            I wanted to reach out and ask if you would be willing to provide a
+            testimonial based on our recent projects together. Your feedback on
+            my work as a MERN stack developer would be incredibly valuable and
+            help others understand the quality and reliability I strive to
+            deliver.
           </p>
-          <span class="insta_button">
-            <i class="fa-brands fa-instagram"></i>
-            @liser</span
+          <a
+            href="https://www.instagram.com/i.am.rick.02/"
+            class="insta_button_follow"
           >
+            <span class="insta_button">
+              <i class="fa-brands fa-instagram"></i>
+              @RickSaha
+            </span>
+          </a>
         </section>
         <section class="tesimonial_reviewer">
           <!-- testimonail slider -->
@@ -369,8 +441,8 @@
                   class="client_image"
                 />
                 <section class="client_details">
-                  <p class="client_name">SUMIT SANYAL</p>
-                  <p class="client_location">Kalna, India</p>
+                  <p class="client_name">Suman Pal</p>
+                  <p class="client_location">Katwa, India</p>
                   <p>
                     <span class="material-symbols-outlined star_icon_review">
                       star_rate_half
@@ -391,7 +463,7 @@
                 </section>
               </section>
               <p class="client_quatation">
-                Good JOb and awesome skills @Rick👍🏻
+                Nice and clean code good work @Rick👍🏻
               </p>
             </div>
             <!-- review2 end -->
@@ -399,7 +471,7 @@
             <div class="testimonial" id="testimonial1">
               <section class="tesimonial_reviewer_details">
                 <img
-                  src="./img/client2.png"
+                  src="./img/client3.png"
                   alt="not found"
                   class="client_image"
                 />
@@ -426,7 +498,7 @@
                 </section>
               </section>
               <p class="client_quatation">
-                Good JOb and awesome skills @Rick👍🏻
+                Good job do your best all time @Rick👍🏻
               </p>
             </div>
             <!-- review2 end -->
@@ -461,7 +533,7 @@
                 </section>
               </section>
               <p class="client_quatation">
-                Good JOb and awesome skills @Rick👍🏻
+                Your skill set is good now try to get a job at MNC'S @Rick👍🏻
               </p>
             </div>
             <!-- review2 end -->
@@ -469,7 +541,7 @@
             <div class="testimonial" id="testimonial1">
               <section class="tesimonial_reviewer_details">
                 <img
-                  src="./img/client2.png"
+                  src="./img/client3.png"
                   alt="not found"
                   class="client_image"
                 />
@@ -495,9 +567,7 @@
                   </p>
                 </section>
               </section>
-              <p class="client_quatation">
-                Good JOb and awesome skills @Rick👍🏻
-              </p>
+              <p class="client_quatation">Good knowledge @Rick👍🏻</p>
             </div>
             <!-- review2 end -->
             <!-- review2 start -->
@@ -530,9 +600,40 @@
                   </p>
                 </section>
               </section>
-              <p class="client_quatation">
-                Good JOb and awesome skills @Rick👍🏻
-              </p>
+              <p class="client_quatation">Good Job and nice work @Rick👍🏻</p>
+            </div>
+            <!-- review2 end -->
+            <!-- review2 start -->
+            <div class="testimonial" id="testimonial1">
+              <section class="tesimonial_reviewer_details">
+                <img
+                  src="./img/client3.png"
+                  alt="not found"
+                  class="client_image"
+                />
+                <section class="client_details">
+                  <p class="client_name">Muskan Khatun</p>
+                  <p class="client_location">Murshidabad, India</p>
+                  <p>
+                    <span class="material-symbols-outlined star_icon_review">
+                      star_rate_half
+                    </span>
+                    <span class="material-symbols-outlined star_icon_review">
+                      star_rate_half
+                    </span>
+                    <span class="material-symbols-outlined star_icon_review">
+                      star_rate_half
+                    </span>
+                    <span class="material-symbols-outlined star_icon_review">
+                      star_rate_half
+                    </span>
+                    <span class="material-symbols-outlined star_icon_review">
+                      star_rate_half
+                    </span>
+                  </p>
+                </section>
+              </section>
+              <p class="client_quatation">Let's work again @Rick👍🏻</p>
             </div>
             <!-- review2 end -->
             <!-- review2 start -->
@@ -544,8 +645,8 @@
                   class="client_image"
                 />
                 <section class="client_details">
-                  <p class="client_name">Mouli Dutta</p>
-                  <p class="client_location">Howrah, India</p>
+                  <p class="client_name">Rofiquil Molla</p>
+                  <p class="client_location">Ujania, India</p>
                   <p>
                     <span class="material-symbols-outlined star_icon_review">
                       star_rate_half
@@ -566,7 +667,8 @@
                 </section>
               </section>
               <p class="client_quatation">
-                Good JOb and awesome skills @Rick👍🏻
+                Good time managment and your deadline reminder app stills help
+                me a lot ! good work keep going @Rick👍🏻
               </p>
             </div>
             <!-- review2 end -->
@@ -574,42 +676,7 @@
             <div class="testimonial" id="testimonial1">
               <section class="tesimonial_reviewer_details">
                 <img
-                  src="./img/client2.png"
-                  alt="not found"
-                  class="client_image"
-                />
-                <section class="client_details">
-                  <p class="client_name">Soumik Sarkar</p>
-                  <p class="client_location">Kalna, India</p>
-                  <p>
-                    <span class="material-symbols-outlined star_icon_review">
-                      star_rate_half
-                    </span>
-                    <span class="material-symbols-outlined star_icon_review">
-                      star_rate_half
-                    </span>
-                    <span class="material-symbols-outlined star_icon_review">
-                      star_rate_half
-                    </span>
-                    <span class="material-symbols-outlined star_icon_review">
-                      star_rate_half
-                    </span>
-                    <span class="material-symbols-outlined star_icon_review">
-                      star_rate_half
-                    </span>
-                  </p>
-                </section>
-              </section>
-              <p class="client_quatation">
-                Good JOb and awesome skills @Rick👍🏻
-              </p>
-            </div>
-            <!-- review2 end -->
-            <!-- review2 start -->
-            <div class="testimonial" id="testimonial1">
-              <section class="tesimonial_reviewer_details">
-                <img
-                  src="./img/client2.png"
+                  src="./img/client3.png"
                   alt="not found"
                   class="client_image"
                 />
@@ -635,9 +702,7 @@
                   </p>
                 </section>
               </section>
-              <p class="client_quatation">
-                Good JOb and awesome skills @Rick👍🏻
-              </p>
+              <p class="client_quatation">Good Job and nice work @Rick👍🏻</p>
             </div>
             <!-- review2 end -->
             <!-- Add more testimonials as needed -->
@@ -651,14 +716,39 @@
             <span>Contact Me</span>
           </span>
           <h2>Lets start work together</h2>
-          <section class="form_container">
-            <section class="input_field">
-              <input type="text" placeholder="Name" />
-              <input type="email" placeholder="Email" />
+          <form id="form_container">
+            <section class="form_container">
+              <section class="input_field">
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="Name"
+                  name="name"
+                  required
+                />
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="Email"
+                  name="email"
+                  required
+                />
+              </section>
+              <input
+                type="text"
+                placeholder="Message"
+                class="message_box"
+                name="message"
+                id="message"
+                rows="4"
+                required
+              />
+              <button type="submit" id="send_btn" class="send_btn">Send</button>
             </section>
-            <input type="text" placeholder="Message" class="message_box" />
-            <button class="send_btn">Send</button>
-          </section>
+            <div class="message_status_box" id="message_status_box">
+              <p id="message_text_design"></p>
+            </div>
+          </form>
         </section>
         <p class="contact_quatation">
           Ready to bring your web project to life? Contact me today for a free
@@ -666,5 +756,12 @@
         </p>
       </section>
     </div>
+
+    <!-- some script--- js -->
+    <script
+      src="https://kit.fontawesome.com/1d8e22ac19.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/index.js"></script>
   </body>
 </html>
